@@ -3,6 +3,7 @@ package com.example.agenda_thymeleaf.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,19 +18,20 @@ public class Agenda implements Serializable {
 
     private String descricao;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
 
     private String status;
 
-   @OneToOne
+    @ManyToOne
     private Servico servico;
 
-    @OneToOne
+    @ManyToOne
     private Cliente cliente;
 
-    @OneToOne
+    @ManyToOne
     private Usuario usuario;
 
-    @OneToOne
+    @ManyToOne
     private Funcionario funcionario;
 }

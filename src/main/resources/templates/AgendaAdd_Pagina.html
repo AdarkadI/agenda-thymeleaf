@@ -74,7 +74,7 @@
     </br>
 </div>
 <div class="container text-left">
-    <form th:object="${funcionario}" th:action="@{/savef}" method="POST">
+    <form th:object="${ObjetoAddAgenda}" th:action="@{/agenda/save}" method="POST">
         <div class="col-md-6 offset-md-3">
             <div class="alert alert-danger d-none" role="alert" th:if="${#fields.hasAnyErrors()}">
                 <div th:each="detailedError : ${#fields.detailedErrors()}">
@@ -84,34 +84,70 @@
         </div>
 
         <div class="col-md-6 offset-md-3">
-            <label for="usuario" class="form-label">nome</label>
-            <input type="text" class="form-control" id="usuario" th:field="*{usuario}" placeholder="Informe o nome"/>
+            <label for="id_agenda" class="form-label">nome</label>
+            <input type="text" class="form-control" id="id_agenda" th:field="*{id_agenda}" placeholder="ID"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('id_agenda')}" th:text="${#fields.errors('id_agenda')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="descricao" class="form-label">nome</label>
+            <input type="text" class="form-control" id="descricao" th:field="*{descricao}" placeholder="Informe a Descrição"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}" th:text="${#fields.errors('descricao')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="data" class="form-label">data</label>
+            <input type="date" class="form-control" id="data" th:field="*{data}" placeholder="Informe a Data" maxlength="150"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('data')}" th:text="${#fields.errors('data')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="Informe o status" maxlength="150"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('status')}" th:text="${#fields.errors('status')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="servico" class="form-label">Servico</label>
+            <select class="form-select" id="servico" th:field="*{servico}">
+                <option value="">Selecione um Serviço</option>
+                <option th:each="servico : ${ObjetoServico}" th:value="${servico.id_servico}" th:text="${servico.nome}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('servico')}" th:text="${#fields.errors('servico')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="cliente" class="form-label">Cliente</label>
+            <select class="form-select" id="cliente" th:field="*{cliente}">
+                <option value="">Selecione um Cliente</option>
+                <option th:each="cliente : ${ObjetoCliente}" th:value="${cliente.id_cliente}" th:text="${cliente.nome}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('cliente')}" th:text="${#fields.errors('cliente')}"></div>
+        </div>
+        </br>
+
+        <div class="col-md-6 offset-md-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <select class="form-select" id="usuario" th:field="*{usuario}">
+                <option value="">Selecione um Usuário</option>
+                <option th:each="usuario : ${ObjetoUsuario}" th:value="${usuario.id_usuario}" th:text="${usuario.usuario}"></option>
+            </select>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('usuario')}" th:text="${#fields.errors('usuario')}"></div>
         </div>
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <label for="senha" class="form-label">serviço</label></br>
-            <button href="" type="submit" class="expande">expandir</button>
-        </div>
-        </br>
-
-        <div class="col-md-6 offset-md-3">
-            <label for="senha" class="form-label">data</label>
-            <input type="date" class="form-control" id="senha" th:field="*{senha}" placeholder="Informe a senha" maxlength="150"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('senha')}" th:text="${#fields.errors('senha')}"></div>
-        </div>
-        </br>
-
-        <div class="col-md-6 offset-md-3">
-            <label for="senha" class="form-label">cliente</label></br>
-            <button href="" type="submit" class="expande">expandir</button>
-        </div>
-        </br>
-
-        <div class="col-md-6 offset-md-3">
-            <label for="senha" class="form-label">funcionario</label></br>
-            <button href="" type="submit" class="expande">expandir</button>
+            <label for="funcionario" class="form-label">Funcionario</label>
+            <select class="form-select" id="funcionario" th:field="*{funcionario}">
+                <option value="">Selecione um Funcionário</option>
+                <option th:each="funcionario : ${ObjetoFuncionario}" th:value="${funcionario.id_funcionario}" th:text="${funcionario.nome}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('usuario')}" th:text="${#fields.errors('usuario')}"></div>
         </div>
         </br>
 

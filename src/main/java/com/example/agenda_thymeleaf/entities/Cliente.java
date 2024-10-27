@@ -22,6 +22,6 @@ public class Cliente implements Serializable {
 
     private String email;
 
-    @OneToOne
+    @ManyToOne
     private Endereco endereco;
 }

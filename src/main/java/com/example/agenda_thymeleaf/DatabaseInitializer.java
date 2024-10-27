@@ -29,7 +29,7 @@ public class DatabaseInitializer {
 
             jdbcTemplate.execute("INSERT INTO TB_SERVICO (id_servico, nome, valor) VALUES ('S0l0', 'Solo', '15000.00');");
 
-            /*jdbcTemplate.execute(
+            jdbcTemplate.execute(
                     "INSERT INTO TB_AGENDA (" +
                             "id_agenda, " +
                             "descricao, " +
@@ -48,11 +48,7 @@ public class DatabaseInitializer {
                             "'Cl13nt3Ch4t0', " +
                             "'U2u4r101', " +
                             "'R1k0');"
-            );*/
-
-            //jdbcTemplate.execute("INSERT INTO TB_AGENDA (id_agenda, data, descricao, status) " +
-              //      "VALUES ('111', '2024-01-01', 'Eliminar o lider da gangue local', 'atuando');");
-
+            );
 
         };
     }

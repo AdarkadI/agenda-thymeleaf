@@ -17,5 +17,5 @@ public class Servico implements Serializable {
 
     private String nome;
 
-    private Number valor;
+    private double valor;
 }

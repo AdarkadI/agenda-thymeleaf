@@ -22,14 +22,14 @@ public class UsuarioController {
 
     //Vai para tela principal do CRUD aonde são listados todos os posts
     @GetMapping("/usuario")
-    public ModelAndView findAllUsuario() {
+    public ModelAndView findAll() {
         ModelAndView mv = new ModelAndView("/Usuario_Pagina");
         mv.addObject("ObjetoUsuario", usuarioService.findAll());
         return mv;
     }
 
     @GetMapping("/usuario/add")
-    public ModelAndView addUsuario(Usuario usuario) {
+    public ModelAndView add(Usuario usuario) {
         ModelAndView mv = new ModelAndView("/UsuarioAdd_Pagina");
         mv.addObject("ObjetoAddUsuario", usuario);
         mv.addObject("ObjetoTipoAcesso", tipoAcessoService.findAll());
@@ -40,7 +40,7 @@ public class UsuarioController {
     @GetMapping("/usuario/edit/{id}")
     public ModelAndView edit(@PathVariable("id") String id) {
 
-        return addUsuario(usuarioService.findOne(id).get());
+        return add(usuarioService.findOne(id).get());
     }
 
     //Exclui um post por seu ID e redireciona para a tela principal
@@ -49,19 +49,19 @@ public class UsuarioController {
 
         usuarioService.delete(id);
 
-        return findAllUsuario();
+        return findAll();
     }
 
     @PostMapping("/usuario/save")
-    public ModelAndView saveUsuario(Usuario usuario, BindingResult result) {
+    public ModelAndView save(Usuario usuario, BindingResult result) {
 
         if(result.hasErrors()) {
-            return addUsuario(usuario);
+            return add(usuario);
         }
 
         usuarioService.save(usuario);
 
-        return findAllUsuario();
+        return findAll();
     }
 
 }

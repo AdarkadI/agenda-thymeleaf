@@ -23,6 +23,6 @@ public class Funcionario implements Serializable {
 
     private double salario;
 
-    @OneToOne
+    @ManyToOne
     private Endereco endereco;
 }

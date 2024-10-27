@@ -29,14 +29,14 @@ public class AgendaController {
 
     //Vai para tela principal do CRUD aonde são listados todos os posts
     @GetMapping("/agenda")
-    public ModelAndView findAllAgenda() {
+    public ModelAndView findAll() {
         ModelAndView mv = new ModelAndView("/Agenda_Pagina");
         mv.addObject("ObjetoAgenda", agendaService.findAll());
         return mv;
     }
 
     @GetMapping("/agenda/add")
-    public ModelAndView addAgenda(Agenda agenda) {
+    public ModelAndView add(Agenda agenda) {
         ModelAndView mv = new ModelAndView("/AgendaAdd_Pagina");
         mv.addObject("ObjetoAddAgenda", agenda);
         mv.addObject("ObjetoServico", servicoService.findAll());
@@ -50,7 +50,7 @@ public class AgendaController {
     @GetMapping("/agenda/edit/{id}")
     public ModelAndView edit(@PathVariable("id") String id) {
 
-        return addAgenda(agendaService.findOne(id).get());
+        return add(agendaService.findOne(id).get());
     }
 
     //Exclui um post por seu ID e redireciona para a tela principal
@@ -59,18 +59,18 @@ public class AgendaController {
 
         agendaService.delete(id);
 
-        return findAllAgenda();
+        return findAll();
     }
 
     @PostMapping("/agenda/save")
-    public ModelAndView saveUsuario(Agenda agenda, BindingResult result) {
+    public ModelAndView save(Agenda agenda, BindingResult result) {
 
         if(result.hasErrors()) {
-            return addAgenda(agenda);
+            return add(agenda);
         }
 
         agendaService.save(agenda);
 
-        return findAllAgenda();
+        return findAll();
     }
 }
