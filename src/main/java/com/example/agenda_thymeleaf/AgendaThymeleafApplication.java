@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class AgendaThymeleafApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(AgendaThymeleafApplication.class, args);
 	}
