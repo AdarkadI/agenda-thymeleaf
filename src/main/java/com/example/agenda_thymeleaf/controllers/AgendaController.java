@@ -27,6 +27,12 @@ public class AgendaController {
     @Autowired
     private FuncionarioService funcionarioService;
 
+    @GetMapping("/")
+    public ModelAndView findAll2() {
+        ModelAndView mv = new ModelAndView("/Neanderagenda_pagina");
+        return mv;
+    }
+
     //Vai para tela principal do CRUD aonde são listados todos os posts
     @GetMapping("/agenda")
     public ModelAndView findAll() {
