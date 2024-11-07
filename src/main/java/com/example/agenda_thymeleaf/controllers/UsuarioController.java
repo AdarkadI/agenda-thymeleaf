@@ -9,7 +9,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 @Controller
 public class UsuarioController {
@@ -63,5 +66,30 @@ public class UsuarioController {
 
         return findAll();
     }
+
+    //Acessar a página de login
+    @GetMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("Login_Pagina"); //
+    }
+
+    //Validar se os dados inseridos
+    @PostMapping("/validar-login")
+    public ModelAndView validarLogin(@RequestParam("usuario") String usuario, @RequestParam("senha") String senha) {
+        // Chama o serviço para validar o login
+        Optional<Usuario> usuarioOpt = usuarioService.validarLogin(usuario, senha);
+
+        if (usuarioOpt.isPresent()) {
+            // Se o usuário existir, vai para a agenda
+            return new ModelAndView("redirect:/agenda");
+        } else {
+            // Dados incorretos, retorna à tela de login com um mensagem de erro
+            ModelAndView mv = new ModelAndView("Login_Pagina");
+            mv.addObject("erro", "Usuário ou senha inválidos.");
+            return mv;
+        }
+    }
+
+
 
 }
