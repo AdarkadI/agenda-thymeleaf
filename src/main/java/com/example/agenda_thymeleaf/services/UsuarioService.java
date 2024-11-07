@@ -33,4 +33,8 @@ public class UsuarioService {
     public void delete(String idUsuario) {
         usuarioRepository.deleteById(idUsuario);
     }
+
+    public Optional<Usuario> validarLogin(String usuario, String senha) {
+        return usuarioRepository.findByUsuarioAndSenha(usuario, senha);
+    }
 }

@@ -47,33 +47,28 @@
     </br>
 </div>
 <div class="container text-left">
-    <form th:object="${funcionario}" th:action="@{/savef}" method="POST">
+    <form th:action="@{/validar-login}" method="POST">
         <div class="col-md-6 offset-md-3">
-            <div class="alert alert-danger d-none" role="alert" th:if="${#fields.hasAnyErrors()}">
-                <div th:each="detailedError : ${#fields.detailedErrors()}">
-                    <span th:text="${detailedError.message}"></span>
-                </div>
+            <div class="alert alert-danger" role="alert" th:if="${erro != null}">
+                <span th:text="${erro}"></span>
             </div>
         </div>
 
         <div class="col-md-6 offset-md-3">
-            <label for="usuario" class="form-label">nome</label>
-            <input type="text" class="form-control" id="usuario" th:field="*{usuario}" placeholder="Informe o nome"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('usuario')}" th:text="${#fields.errors('usuario')}"></div>
+            <label for="usuario" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Informe o nome" required/>
         </div>
-        </br>
+        <br/>
 
         <div class="col-md-6 offset-md-3">
-            <label for="senha" class="form-label">senha</label>
-            <input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="Informe a senha" maxlength="150"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('senha')}" th:text="${#fields.errors('senha')}"></div>
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Informe a senha" required/>
         </div>
-        </br>
+        <br/>
 
         <div class="container text-center">
-
             <div class="col-md-6 offset-md-3">
-                <button type="submit" class="btn btn-primary">login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </div>
     </form>
