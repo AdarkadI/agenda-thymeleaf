@@ -28,8 +28,8 @@ public class AgendaController {
     private FuncionarioService funcionarioService;
 
     @GetMapping("/")
-    public ModelAndView findAll2() {
-        ModelAndView mv = new ModelAndView("/Neanderagenda_pagina");
+    public ModelAndView welcome() {
+        ModelAndView mv = new ModelAndView("/Neanderagenda_Pagina");
         return mv;
     }
 

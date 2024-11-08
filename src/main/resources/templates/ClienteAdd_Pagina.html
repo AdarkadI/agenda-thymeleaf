@@ -61,12 +61,12 @@
 <body>
 <header>
     <div class="col-md-6 offset-md-3">
-        <button type="button" class="logo" href="@{/agenda}">NeanderAgenda</button>
+        <button type="button" class="logo" onclick="location.href='/agenda'">NeanderAgenda</button>
     </div>
 </header>
 </br>
 <div class="col-md-4 offset-md-1">
-    <button type="button" class="volta" href="@{/cliente}">voltar</button>
+    <button type="button" class="volta" onclick="location.href='/cliente'">voltar</button>
 </div>
 <div class="container text-center">
     </br>
@@ -113,10 +113,17 @@
 
         <div class="col-md-6 offset-md-3">
             <label for="endereco" class="form-label">Endereco</label>
+            <div class="row">
+                <div class="col-md-10">
             <select class="form-select" id="endereco" th:field="*{endereco}">
                 <option value="">Selecione um tipo</option>
                 <option th:each="endereco : ${ObjetoEndereco}" th:value="${endereco.id_endereco}" th:text="${endereco.logradouro}"></option>
             </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" onclick="location.href='/endereco'">Adicionar</button>
+                </div>
+            </div>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('endereco')}" th:text="${#fields.errors('endereco')}"></div>
         </div>
         </br>

@@ -65,19 +65,11 @@
 <body>
 <header>
     <div class="col-md-6 offset-md-3">
-        <button type="button" class="logo" href="">NeanderAgenda</button>
+        <button type="button" class="logo" onclick="location.href='/agenda'">NeanderAgenda</button>
     </div>
 </header>
 </br>
 <div class="container text-left">
-    <form th:object="${ObjetoAddAgenda}" th:action="@{/agenda/save}" method="POST">
-        <div class="col-md-6 offset-md-3">
-            <div class="alert alert-danger d-none" role="alert" th:if="${#fields.hasAnyErrors()}">
-                <div th:each="detailedError : ${#fields.detailedErrors()}">
-                    <span th:text="${detailedError.message}"></span>
-                </div>
-            </div>
-        </div>
 
         <div class="col-md-6 offset-md-3">
             <h3>Bem vindo ao Neander agenda, apartir desta pagina voce pode criar usuarios, fazer logins para acessar
@@ -87,25 +79,24 @@
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <button type="submit" class="expande" href="@{/usuario}">Criar novos usuarios</button>
+            <button type="submit" class="expande" onclick="location.href='/usuario'">Criar novos usuarios</button>
         </div>
         </br>
 
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <button type="submit" class="expande" href="@{/login}">Fazer Login</button>
+            <button type="submit" class="expande" onclick="location.href='/login'">Fazer Login</button>
         </div>
         </br>
 
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <button type="submit" class="expande" href="localhost:8100/relatorio/">Relatorios</button>
+            <button type="submit" class="expande" onclick="location.href='http://localhost:8100/relatorio/'">Relatorios</button>
         </div>
         </br>
 
-    </form>
 </div>
 </body>
 </html>

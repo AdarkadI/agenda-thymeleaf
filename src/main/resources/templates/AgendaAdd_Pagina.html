@@ -61,12 +61,12 @@
 <body>
 <header>
     <div class="col-md-6 offset-md-3">
-        <button type="button" class="logo" href="@{/agenda}">NeanderAgenda</button>
+        <button type="button" class="logo" onclick="location.href='/agenda'">NeanderAgenda</button>
     </div>
 </header>
 </br>
 <div class="col-md-4 offset-md-1">
-    <button type="button" class="volta" href="@{/agenda}">voltar</button>
+    <button type="button" class="volta" onclick="location.href='/agenda'">voltar</button>
 </div>
 <div class="container text-center">
     </br>
@@ -113,20 +113,34 @@
 
         <div class="col-md-6 offset-md-3">
             <label for="servico" class="form-label">Servico</label>
-            <select class="form-select" id="servico" th:field="*{servico}">
-                <option value="">Selecione um Serviço</option>
-                <option th:each="servico : ${ObjetoServico}" th:value="${servico.id_servico}" th:text="${servico.nome}"></option>
-            </select>
+            <div class="row">
+                <div class="col-md-10">
+                    <select class="form-select" id="servico" th:field="*{servico}">
+                        <option value="">Selecione um Serviço</option>
+                        <option th:each="servico : ${ObjetoServico}" th:value="${servico.id_servico}" th:text="${servico.nome}"></option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary"onclick="location.href='/servico'">Adicionar</button>
+                </div>
+            </div>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('servico')}" th:text="${#fields.errors('servico')}"></div>
         </div>
         </br>
 
         <div class="col-md-6 offset-md-3">
             <label for="cliente" class="form-label">Cliente</label>
+            <div class="row">
+                <div class="col-md-10">
             <select class="form-select" id="cliente" th:field="*{cliente}">
                 <option value="">Selecione um Cliente</option>
                 <option th:each="cliente : ${ObjetoCliente}" th:value="${cliente.id_cliente}" th:text="${cliente.nome}"></option>
             </select>
+                </div>
+                <div class="col-md-2">
+            <button type="button" class="btn btn-primary" onclick="location.href='/cliente'">Adicionar</button>
+                </div>
+            </div>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('cliente')}" th:text="${#fields.errors('cliente')}"></div>
         </div>
         </br>
@@ -143,10 +157,17 @@
 
         <div class="col-md-6 offset-md-3">
             <label for="funcionario" class="form-label">Funcionario</label>
+            <div class="row">
+                <div class="col-md-10">
             <select class="form-select" id="funcionario" th:field="*{funcionario}">
                 <option value="">Selecione um Funcionário</option>
                 <option th:each="funcionario : ${ObjetoFuncionario}" th:value="${funcionario.id_funcionario}" th:text="${funcionario.nome}"></option>
             </select>
+                </div>
+                <div class="col-md-2">
+            <button type="button" class="btn btn-primary" onclick="location.href='/funcionario'">Adicionar</button>
+                </div>
+            </div>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('usuario')}" th:text="${#fields.errors('usuario')}"></div>
         </div>
         </br>

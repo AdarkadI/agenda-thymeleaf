@@ -51,11 +51,15 @@
 <body>
 <header>
     <div class="col-md-6 offset-md-3">
-        <button type="button" class="logo" href="@{/agenda}">NeanderAgenda</button>
+        <button type="button" class="logo" >NeanderAgenda</button>
     </div>
 </header>
+</br>
+<div class="col-md-4 offset-md-1">
+    <button type="button" class="volta" onclick="location.href='/usuario'">voltar</button>
+</div>
 <div class="container text-center mt-4">
-    <h1>Login</h1>
+    <h1>Sign Up</h1>q
 </div>
 <div class="container">
     <form th:object="${ObjetoAddUsuario}" th:action="@{/usuario/save}" method="POST">
