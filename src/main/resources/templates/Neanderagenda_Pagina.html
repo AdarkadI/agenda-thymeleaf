@@ -56,6 +56,10 @@
             width: 100%;
         }
 
+        h3 {
+        text-align: center;
+        }
+
 </style>
 </head>
 <body>
@@ -65,53 +69,34 @@
     </div>
 </header>
 </br>
-<div class="col-md-4 offset-md-1">
-    <button type="button" class="volta" onclick="history.back()">voltar</button>
-</div>
-<div class="container text-center">
-    </br>
-    <h1>Registro de serviço</h1>
-    </br>
-</div>
 <div class="container text-left">
-    <form th:object="${ObjetoAddServico}" th:action="@{/servico/save}" method="POST">
-        <div class="col-md-6 offset-md-3">
-            <div class="alert alert-danger d-none" role="alert" th:if="${#fields.hasAnyErrors()}">
-                <div th:each="detailedError : ${#fields.detailedErrors()}">
-                    <span th:text="${detailedError.message}"></span>
-                </div>
-            </div>
-        </div>
 
         <div class="col-md-6 offset-md-3">
-            <label for="id_servico" class="form-label">ID</label>
-            <input type="text" class="form-control" id="id_servico" th:field="*{id_servico}" placeholder="ID"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('id_servico')}" th:text="${#fields.errors('id_servico')}"></div>
+            <h3>Bem vindo ao Neander agenda, apartir desta pagina voce pode criar usuarios, fazer logins para acessar
+                agendas e acessar relatorios.
+            </h3>
         </div>
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <label for="nome" class="form-label">nome do servico</label>
-            <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Informe o nome" maxlength="150"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:text="${#fields.errors('nome')}"></div>
+            <button type="submit" class="expande" onclick="location.href='/usuario'">Criar novos usuarios</button>
         </div>
+        </br>
+
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <label for="valor" class="form-label">valor</label>
-            <input type="number" class="form-control" id="valor" th:field="*{valor}" placeholder="Informe o valor" maxlength="150"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('valor')}" th:text="${#fields.errors('valor')}"></div>
+            <button type="submit" class="expande" onclick="location.href='/login'">Fazer Login</button>
         </div>
         </br>
 
+        </br>
 
-        <div class="container text-center">
-
-            <div class="col-md-6 offset-md-3">
-                <button type="submit" class="btn btn-primary">adicionar</button>
-            </div>
+        <div class="col-md-6 offset-md-3">
+            <button type="submit" class="expande" onclick="location.href='http://localhost:8100/relatorio/'">Relatorios</button>
         </div>
-    </form>
+        </br>
+
 </div>
 </body>
 </html>
