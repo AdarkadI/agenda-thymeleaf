@@ -66,7 +66,7 @@
 </header>
 </br>
 <div class="col-md-4 offset-md-1">
-    <button type="button" class="volta" onclick="location.href='/agenda'">voltar</button>
+    <button type="button" class="volta" onclick="history.back()">voltar</button>
 </div>
 <div class="container text-center">
     </br>
@@ -84,14 +84,14 @@
         </div>
 
         <div class="col-md-6 offset-md-3">
-            <label for="id_agenda" class="form-label">nome</label>
+            <label for="id_agenda" class="form-label">ID</label>
             <input type="text" class="form-control" id="id_agenda" th:field="*{id_agenda}" placeholder="ID"/>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('id_agenda')}" th:text="${#fields.errors('id_agenda')}"></div>
         </div>
         </br>
 
         <div class="col-md-6 offset-md-3">
-            <label for="descricao" class="form-label">nome</label>
+            <label for="descricao" class="form-label">Descrição</label>
             <input type="text" class="form-control" id="descricao" th:field="*{descricao}" placeholder="Informe a Descrição"/>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}" th:text="${#fields.errors('descricao')}"></div>
         </div>
